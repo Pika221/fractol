@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 21:55:40 by hialpagu          #+#    #+#             */
+/*   Updated: 2025/03/23 22:02:20 by hialpagu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -44,22 +56,15 @@ typedef struct s_fractal
     double  zy;
 }   t_fractal;
 
-//controllers.c
-void controllers(t_fractal *fractal);
-int mouse_hook(int button, int x, int y, t_fractal *fractal);
-int key_hook(int key_code, t_fractal *fractal);
-int close_window(t_fractal *fractal);
-
-//init.c
+void    controllers(t_fractal *fractal);
+int     mouse_hook(int button, int x, int y, t_fractal *fractal);
+int     key_hook(int key_code, t_fractal *fractal);
+int     close_window(t_fractal *fractal);
 void    fractal_init(t_fractal *fractal, char *name);
-
-//render.c
 void    render(t_fractal *fractal);
-
-//utils.c
-int 		ft_is_double(char *s);
-int			ft_strncmp(char *s1, char *s2, size_t n);
-void		ft_putstr_fd(char *s, int fd);
-double		ft_atod(char *s);
+int     ft_is_double(char *s);
+int     ft_strncmp(char *s1, char *s2, size_t n);
+void    ft_putstr_fd(char *s, int fd);
+double  ft_atod(char *s);
 
 #endif

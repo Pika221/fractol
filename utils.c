@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 21:55:16 by hialpagu          #+#    #+#             */
+/*   Updated: 2025/03/23 22:03:09 by hialpagu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-int ft_is_double(char *s)
+int	ft_is_double(char *s)
 {
 	int	i;
 	int	dot;
@@ -32,6 +44,7 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
