@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 20:32:09 by hialpagu          #+#    #+#             */
+/*   Updated: 2025/03/23 21:20:09 by hialpagu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static int	check_args(int ac, char **av)
@@ -14,26 +26,36 @@ static int	check_args(int ac, char **av)
 		ft_putstr_fd("Values must be number.\n", 1);
 		return (0);
 	}
+    if (ac == 4 && (ft_atod(av[3]) > __DBL_MAX__
+			|| ft_atod(av[2]) > __DBL_MAX__
+			|| ft_atod(av[2]) < ((__DBL_MAX__ + 1) * -1)
+			|| ft_atod(av[3]) < ((__DBL_MAX__ + 1) * -1)))
+		return(0);
 	return (1);
 }
 
 int main(int ac, char **av)
 {
-	t_fractol	fractal;
+	t_fractal	*fractal;
 
+    fractal = malloc(sizeof(t_fractal));
+    if (!fractal)
+        return (0);
 	if (!check_args(ac, av))
 	{
 		ft_putstr_fd(MSG, 1);
-		return (1);
+		free(fractal);
+		exit(1);
 	}
-	fractal.name = av[1];
-	if (fractal.name == "julia")
+	fractal_init(fractal, av[1]);
+	if (ac == 4)
 	{
-		fractal.julia_x = ft_atod(av[2]);
-		fractal.julia_y = ft_atod(av[3]);
+		fractal->julia_x = ft_atod(av[2]);
+		fractal->julia_y = ft_atod(av[3]);
 	}
-	fractol_init(&fractal);
-	render(&fractal);
-	mlx_loop(fractal.mlx_connection);
+	render(fractal);
+	controllers(fractal);
+	mlx_loop(fractal->mlx);
+	free(fractal);
 	return (0);
 }

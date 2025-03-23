@@ -1,49 +1,41 @@
 #include "fractol.h"
 
-static void	exit_error(void)
+static void exit_n_error(t_fractal *fractal)
 {
-	ft_putstr_fd("Error\n", 1);
+	mlx_destroy_display(fractal->mlx);
+    mlx_destroy_window(fractal->mlx, fractal->window);
+	mlx_destroy_display(fractal->mlx);
+	free(fractal->mlx);
+    free(fractal);
+    ft_putstr_fd("Error\n", 1);
 	exit(1);
 }
 
-static void	data_control(t_fractol *fractol)
+static void fractal_data(t_fractal *fractal)
 {
-	fractol->escape_value = 4;
-	fractol->iterations_definition = 42;
-	fractol->shift_x = -0.5;
-	fractol->shift_y = 0.0;
-	fractol->zoom = 1.0;
+    fractal->x = 0;
+    fractal->y = 0;
+    fractal->julia_x = -0.7;
+    fractal->julia_y = 0.2715;
+    fractal->shift_x = -2;
+    fractal->shift_y = -1.3;
+    fractal->zoom = 380;
+    fractal->iteration = 40;
+    fractal->color = 0x3435FF;
 }
 
-static void	controllers(t_fractol *fractol)
+void    fractal_init(t_fractal *fractal, char *name)
 {
-	mlx_key_hook(fractol->mlx_window, key_hook, fractol);
-	mlx_mouse_hook(fractol->mlx_window, mouse_hook, fractol);
-	mlx_hook(fractol->mlx_window, 17, 0L, close_window, fractol);
-	mlx_hook(fractol->mlx_window, 6, 0, julia_move, fractol);
+    fractal_data(fractal);
+    fractal->name = name;
+    fractal->mlx = mlx_init();
+    if (!ft_strncmp(fractal->name, "julia", 5))
+        fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "JULIA SET");
+    else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
+        fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "MANDELBROT SET");
+    fractal->img = mlx_new_image(fractal->mlx, SIZE, SIZE);
+    if (!fractal->mlx || !fractal->window || !fractal->img)
+        exit_n_error(fractal);
+    fractal->img_ptr = mlx_get_data_addr(fractal->img, &fractal->bpp, &fractal->line_len, &fractal->end);
 }
 
-void	fractol_init(t_fractol *fractol)
-{
-	fractol->mlx_connection = mlx_init();
-	if (!fractol->mlx_connection)
-		exit_error();
-	fractol->mlx_window = mlx_new_window(fractol->mlx_connection, SIZE, SIZE, fractol->name);
-	if (!fractol->mlx_window)
-	{
-		mlx_destroy_display(fractol->mlx_connection);
-		free(fractol->mlx_connection);
-		exit_error();
-	}
-	fractol->img.img_ptr = mlx_new_image(fractol->mlx_connection, SIZE, SIZE);
-	if (!fractol->img.img_ptr)
-	{
-		mlx_destroy_window(fractol->mlx_connection, fractol->mlx_window);
-		mlx_destroy_display(fractol->mlx_connection);
-		free(fractol->mlx_connection);
-		exit_error();
-	}
-	fractol->img.pixels_ptr = mlx_get_data_addr(fractol->img.img_ptr, &fractol->img.bpp, &fractol->img.line_len, &fractol->img.endian);
-	controllers(fractol);
-	data_control(fractol);
-}

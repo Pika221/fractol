@@ -1,7 +1,7 @@
 NAME = fractol
 
 all:
-	@gcc *.c -Lminilibx-linux -lmlx_Linux -lX11 -lXext -o fractol
+	@gcc *.c -Lminilibx -lmlx -lX11 -lXext -o fractol
 
 clean:
 	@rm -f *.o
