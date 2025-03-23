@@ -1,32 +1,39 @@
-/*
-	Julia and Mandelbrot
-	Infinite zoom
-	Able to take command line args to disipline
-		which fractal render
-	Able to take command line args to shape Julia, i.e x y coordinates
-	ESC closes the process with no leaks
-	Click on the X window, closes the process leaks free
-*/
-
 #include "fractol.h"
+
+static int	check_args(int ac, char **av)
+{
+	if (ac != 2 && ac != 4)
+		return (0);
+	if ((ac == 2 && ft_strncmp(av[1], "mandelbrot", 10))
+		|| (ac == 4 && ft_strncmp(av[1], "julia", 5)))
+		return (0);
+	if (ac == 4 && (!ft_is_double(av[2]) || !ft_is_double(av[3])))
+	{
+		ft_putstr_fd("Use only one decimal seperator if needed.\n", 1);
+		ft_putstr_fd("Only use '.' for seperator.\n", 1);
+		ft_putstr_fd("Values must be number.\n", 1);
+		return (0);
+	}
+	return (1);
+}
 
 int main(int ac, char **av)
 {
-	t_fractol	fractol;
+	t_fractol	fractal;
 
-
-	if ((ac == 4 && !ft_strncmp(av[1], "julia", 5))
-		|| (ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)))
+	if (!check_args(ac, av))
 	{
-		fractol_init(&fractol);
-		fractol_render(&fractol);
-		mlx_loop(fractol.mlx);
-		// Julia Mandelbrot
+		ft_putstr_fd(MSG, 1);
+		return (1);
 	}
-	else
+	fractal.name = av[1];
+	if (fractal.name == "julia")
 	{
-		ft_putstr_fd(ERROR_MSG, 1);
-		exit(1);
+		fractal.julia_x = ft_atod(av[2]);
+		fractal.julia_y = ft_atod(av[3]);
 	}
+	fractol_init(&fractal);
+	render(&fractal);
+	mlx_loop(fractal.mlx_connection);
 	return (0);
 }
