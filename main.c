@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:32:09 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/23 21:20:09 by hialpagu         ###   ########.fr       */
+/*   Updated: 2025/03/25 00:11:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ static int	check_args(int ac, char **av)
 		ft_putstr_fd("Values must be number.\n", 1);
 		return (0);
 	}
-    if (ac == 4 && (ft_atod(av[3]) > __DBL_MAX__
+	if (ac == 4 && (ft_atod(av[3]) > __DBL_MAX__
 			|| ft_atod(av[2]) > __DBL_MAX__
 			|| ft_atod(av[2]) < ((__DBL_MAX__ + 1) * -1)
 			|| ft_atod(av[3]) < ((__DBL_MAX__ + 1) * -1)))
-		return(0);
+		return (0);
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_fractal	*fractal;
 
-    fractal = malloc(sizeof(t_fractal));
-    if (!fractal)
-        return (0);
+	fractal = malloc(sizeof(t_fractal));
+	if (!fractal)
+		return (0);
 	if (!check_args(ac, av))
 	{
 		ft_putstr_fd(MSG, 1);

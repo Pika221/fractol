@@ -1,14 +1,34 @@
 NAME = fractol
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -rf
+HEADER = -Iheader -Iminilibx
+MLX = ./minilibx/libmlx.a
+SRCS = controllers.c init.c main.c render.c utils.c
+OBJS = $(SRCS:.c=.o)
 
-all:
-	@gcc *.c -Lminilibx -lmlx -lX11 -lXext -o fractol
+.c.o:
+	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $(<:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -L minilibx -lmlx -lX11 -lm -lXext -o $(NAME)
+	@echo "Fractol compiled"
 
 clean:
-	@rm -f *.o
+	@$(RM) $(OBJS)
+	@echo "Fractol cleaned"
+
+minilibx :
+	@git clone -s https://github.com/42Paris/minilibx-linux.git ./minilibx > /dev/null 2>&1
+	@make -C minilibx > /dev/null 2>&1
+	@echo "Minilibx installed"
 
 fclean: clean
-	@rm -f fractol
+	@$(RM) $(NAME) $(MLX) > /dev/null 2>&1
+	@$(RM) ./minilibx > /dev/null 2>&1
 
-re: fclean all
+re: fclean minilibx all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re minilibx

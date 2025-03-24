@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:40 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/23 22:02:20 by hialpagu         ###   ########.fr       */
+/*   Updated: 2025/03/25 00:07:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,38 @@
 
 typedef struct s_fractal
 {
-    char    *name;
-    void    *mlx;
-    void    *window;
-    void    *img;
-    void    *img_ptr;
-    int     x;
-    int     y;
-    int     iteration;
-    int     bpp;
-    int     end;
-    int     line_len;
-    int     color;
-    double  julia_x;
-    double  julia_y;
-    double  shift_x;
-    double  shift_y;
-    double  zoom;
-    double  cx;
-    double  cy;
-    double  zx;
-    double  zy;
-}   t_fractal;
+	char	*name;
+	void	*mlx;
+	void	*window;
+	void	*img;
+	void	*img_ptr;
+	int		x;
+	int		y;
+	int		iteration;
+	int		bpp;
+	int		end;
+	int		line_len;
+	int		color;
+	double	julia_x;
+	double	julia_y;
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
+	double	cx;
+	double	cy;
+	double	zx;
+	double	zy;
+}	t_fractal;
 
-void    controllers(t_fractal *fractal);
-int     mouse_hook(int button, int x, int y, t_fractal *fractal);
-int     key_hook(int key_code, t_fractal *fractal);
-int     close_window(t_fractal *fractal);
-void    fractal_init(t_fractal *fractal, char *name);
-void    render(t_fractal *fractal);
-int     ft_is_double(char *s);
-int     ft_strncmp(char *s1, char *s2, size_t n);
-void    ft_putstr_fd(char *s, int fd);
-double  ft_atod(char *s);
+void	controllers(t_fractal *fractal);
+int		mouse_hook(int button, int x, int y, t_fractal *fractal);
+int		key_hook(int key_code, t_fractal *fractal);
+int		close_window(t_fractal *fractal);
+void	fractal_init(t_fractal *fractal, char *name);
+void	render(t_fractal *fractal);
+int		ft_is_double(char *s);
+int		ft_strncmp(char *s1, char *s2, size_t n);
+void	ft_putstr_fd(char *s, int fd);
+double	ft_atod(char *s);
 
 #endif
