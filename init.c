@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:10 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 00:10:16 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 02:00:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ static void	fractal_data(t_fractal *fractal)
 	fractal->y = 0;
 	fractal->julia_x = -0.7;
 	fractal->julia_y = 0.2715;
-	fractal->shift_x = -2;
-	fractal->shift_y = -1.3;
-	fractal->zoom = 380;
 	fractal->iteration = 40;
 	fractal->color = 0x3435FF;
 }
@@ -42,10 +39,20 @@ void	fractal_init(t_fractal *fractal, char *name)
 	fractal->name = name;
 	fractal->mlx = mlx_init();
 	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
 		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "JULIA SET");
+		fractal->shift_x = -1.45;
+		fractal->shift_y = -1.45;
+		fractal->zoom = 350;
+	}
 	else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
+	{
 		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE,
 				"MANDELBROT SET");
+		fractal->shift_x = -2;
+		fractal->shift_y = -1.35;
+		fractal->zoom = 380;
+	}
 	fractal->img = mlx_new_image(fractal->mlx, SIZE, SIZE);
 	if (!fractal->mlx || !fractal->window || !fractal->img)
 		exit_n_error(fractal);

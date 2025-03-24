@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:32:09 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 00:11:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 01:58:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ static int	check_args(int ac, char **av)
 	return (1);
 }
 
+static void	julia_recommend(void)
+{
+	ft_putstr_fd("Recomended Julia Values: -0.7  ,  0.27015\n", 1);
+	ft_putstr_fd("\t\t\t    0  ,  0.8\n", 1);
+	ft_putstr_fd("\t\t\t 0.37  ,  0.1\n", 1);
+	ft_putstr_fd("\t\t\t0.355  , -0.355\n", 1);
+	ft_putstr_fd("\t\t\t-0.54  ,  0.54\n", 1);
+	ft_putstr_fd("\t\t\t 0.34  , -0.05\n", 1);
+}
+
 int	main(int ac, char **av)
 {
 	t_fractal	*fractal;
@@ -44,6 +54,7 @@ int	main(int ac, char **av)
 	if (!check_args(ac, av))
 	{
 		ft_putstr_fd(MSG, 1);
+		julia_recommend();
 		free(fractal);
 		exit(1);
 	}

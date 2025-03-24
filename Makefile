@@ -20,15 +20,18 @@ clean:
 	@$(RM) $(OBJS)
 	@echo "Fractol cleaned"
 
-minilibx :
+minilibx:
 	@git clone -s https://github.com/42Paris/minilibx-linux.git ./minilibx > /dev/null 2>&1
 	@make -C minilibx > /dev/null 2>&1
 	@echo "Minilibx installed"
 
 fclean: clean
-	@$(RM) $(NAME) $(MLX) > /dev/null 2>&1
-	@$(RM) ./minilibx > /dev/null 2>&1
+	@$(RM) $(NAME) > /dev/null 2>&1
 
-re: fclean minilibx all
+uninstall:
+	@$(RM) ./minilibx > /dev/null 2>&1
+	@echo "Minilibx uninstalled"
+
+re: fclean all
 
 .PHONY: all clean fclean re minilibx
