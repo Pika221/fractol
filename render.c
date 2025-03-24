@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 20:41:13 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 00:16:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 02:05:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,10 @@ void	render(t_fractal *fractal)
 		while (fractal->y < SIZE)
 		{
 			if (!ft_strncmp(fractal->name, "mandelbrot", 10))
-			{
 				m_set(fractal);
-				(fractal->y)++;
-			}
 			else if (!ft_strncmp(fractal->name, "julia", 5))
-			{
 				j_set(fractal);
-				(fractal->y)++;
-			}
+			(fractal->y)++;
 		}
 		fractal->y = 0;
 		(fractal->x)++;

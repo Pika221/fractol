@@ -14,23 +14,23 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(MLX) -L minilibx -lmlx -lX11 -lm -lXext -o $(NAME)
-	@echo "Fractol compiled"
+	@echo "Fractol compiled!"
 
 clean:
 	@$(RM) $(OBJS)
-	@echo "Fractol cleaned"
+	@echo "Fractol cleaned!"
 
 minilibx:
 	@git clone -s https://github.com/42Paris/minilibx-linux.git ./minilibx > /dev/null 2>&1
 	@make -C minilibx > /dev/null 2>&1
-	@echo "Minilibx installed"
+	@echo "Minilibx installed!"
 
 fclean: clean
 	@$(RM) $(NAME) > /dev/null 2>&1
 
 uninstall:
 	@$(RM) ./minilibx > /dev/null 2>&1
-	@echo "Minilibx uninstalled"
+	@echo "Minilibx uninstalled!"
 
 re: fclean all
 
