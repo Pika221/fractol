@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:10 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 16:34:48 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 20:34:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static void	fractal_data(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->julia_x = -0.7;
-	fractal->julia_y = 0.2715;
 	fractal->iteration = 40;
 	fractal->color = 0x3435FF;
 	fractal->shift_x = -1.45;

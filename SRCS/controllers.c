@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:05 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 17:16:20 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/26 00:45:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	close_window(t_fractal *fractal)
 	mlx_destroy_display(fractal->mlx);
 	free(fractal->mlx);
 	free(fractal);
-	exit(1);
+	exit(0);
 }
 
 int	key_hook(int key_code, t_fractal *fractal)
