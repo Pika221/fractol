@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:40 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 01:01:38 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 16:45:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include "minilibx/mlx.h"
+# include "../LIB/minilibx/mlx.h"
 
 # define MSG "Usage: ./fractol mandelbrot | julia <value1> <value2>\n"
 # define SIZE 1024
