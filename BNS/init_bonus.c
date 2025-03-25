@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:10 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 20:34:24 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/26 01:17:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	fractal_init(t_fractal *fractal, char *name)
 		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "JULIA SET");
 	else if (!ft_strncmp(fractal->name, "bship", 5))
 	{
-		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "BURNING SHIP SET");
+		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "BSHIP SET");
 		fractal->shift_x = -2;
 		fractal->shift_y = -1.85;
 		fractal->zoom = 320;

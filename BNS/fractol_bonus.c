@@ -17,10 +17,11 @@ static int	check_args(int ac, char **av)
 	if (ac != 2 && ac != 4)
 		return (0);
 	if (ac == 2)
-		if (ft_strncmp(av[1], "bship", 5) && ft_strncmp(av[1], "mandelbrot", 10))
+		if (ft_strncmp(av[1], "bship", 5)
+			&& ft_strncmp(av[1], "mandelbrot", 10))
 			return (0);
 	if (ac == 4 && ft_strncmp(av[1], "julia", 5))
-			return (0);
+		return (0);
 	if (ac == 4 && (!ft_is_double(av[2]) || !ft_is_double(av[3])))
 	{
 		ft_putstr_fd("Use only one decimal seperator if needed.\n", 1);
