@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:40 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 16:45:42 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 17:16:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,8 @@
 # define SIZE 1024
 
 # define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
-# define COLOR_1 49
-# define COLOR_2 50
 
 typedef struct s_fractal
 {

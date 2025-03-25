@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controllers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:05 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/23 21:59:14 by hialpagu         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:16:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,6 @@ int	key_hook(int key_code, t_fractal *fractal)
 {
 	if (key_code == ESC)
 		close_window(fractal);
-	if (key_code == UP)
-		fractal->shift_y -= 20 / fractal->zoom;
-	else if (key_code == DOWN)
-		fractal->shift_y += 20 / fractal->zoom;
-	else if (key_code == LEFT)
-		fractal->shift_x -= 20 / fractal->zoom;
-	else if (key_code == RIGHT)
-		fractal->shift_x += 20 / fractal->zoom;
-	else if (key_code == COLOR_1)
-		fractal->iteration += 5;
-	else if (key_code == COLOR_2)
-		fractal->iteration -= 5;
-	render(fractal);
 	return (0);
 }
 

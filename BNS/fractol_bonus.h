@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:40 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 16:51:15 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 17:16:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define SCROLL_DOWN 5
 # define COLOR_1 49
 # define COLOR_2 50
+# define ITER_1 51
+# define ITER_2 52
 
 typedef struct s_fractal
 {

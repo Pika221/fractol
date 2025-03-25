@@ -6,7 +6,7 @@
 /*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:05 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 16:25:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/25 17:15:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ int	key_hook(int key_code, t_fractal *fractal)
 		fractal->shift_x -= 20 / fractal->zoom;
 	else if (key_code == RIGHT)
 		fractal->shift_x += 20 / fractal->zoom;
-	else if (key_code == COLOR_1)
+	else if (key_code == ITER_1)
 		fractal->iteration += 5;
-	else if (key_code == COLOR_2)
+	else if (key_code == ITER_2)
 		fractal->iteration -= 5;
+	else if (key_code == COLOR_1)
+		fractal->color = 0x1474FF;
+	else if (key_code == COLOR_2)
+		fractal->color = 0x3435FF;
 	render(fractal);
 	return (0);
 }
