@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controllers_bonus.c                                :+:      :+:    :+:   */
+/*   controllers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:05 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/26 00:45:20 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/26 14:22:26 by hialpagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "fractol.h"
 
 int	close_window(t_fractal *fractal)
 {
@@ -26,23 +26,6 @@ int	key_hook(int key_code, t_fractal *fractal)
 {
 	if (key_code == ESC)
 		close_window(fractal);
-	if (key_code == UP)
-		fractal->shift_y -= 20 / fractal->zoom;
-	else if (key_code == DOWN)
-		fractal->shift_y += 20 / fractal->zoom;
-	else if (key_code == LEFT)
-		fractal->shift_x -= 20 / fractal->zoom;
-	else if (key_code == RIGHT)
-		fractal->shift_x += 20 / fractal->zoom;
-	else if (key_code == ITER_1)
-		fractal->iteration += 5;
-	else if (key_code == ITER_2)
-		fractal->iteration -= 5;
-	else if (key_code == COLOR_1)
-		fractal->color = 0x1474FF;
-	else if (key_code == COLOR_2)
-		fractal->color = 0x3435FF;
-	render(fractal);
 	return (0);
 }
 
@@ -50,7 +33,7 @@ static void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
 	double	zoom_level;
 
-	zoom_level = 1.4;
+	zoom_level = 1.1;
 	if (zoom == 1)
 	{
 		fractal->shift_x = (x / fractal->zoom + fractal->shift_x) - (x

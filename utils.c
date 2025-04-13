@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:16 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 16:25:29 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/26 14:05:32 by hialpagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "fractol.h"
 
 int	ft_is_double(char *s)
 {
@@ -85,11 +85,4 @@ double	ft_atod(char *s)
 		fractional_part = fractional_part +(*s++ - '0') * pow;
 	}
 	return ((integer_part + fractional_part) * sign);
-}
-
-double	abs_v(double n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
 }

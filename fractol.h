@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_bonus.h                                    :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:40 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/25 17:16:04 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/26 14:21:36 by hialpagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_BONUS_H
-# define FRACTOL_BONUS_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include "../LIB/minilibx/mlx.h"
+# include "minilibx/mlx.h"
 
-# define MSG "Usage: ./fractol mandelbrot | julia <value1> <value2> | bship\n"
+# define MSG "Usage: ./fractol mandelbrot | julia <value1> <value2>\n"
 # define SIZE 1024
 
 # define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
-# define COLOR_1 49
-# define COLOR_2 50
-# define ITER_1 51
-# define ITER_2 52
 
 typedef struct s_fractal
 {
@@ -68,6 +60,5 @@ int		ft_is_double(char *s);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
 double	ft_atod(char *s);
-double	abs_v(double n);
 
 #endif

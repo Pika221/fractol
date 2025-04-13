@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_bonus.c                                       :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:55:10 by hialpagu          #+#    #+#             */
-/*   Updated: 2025/03/26 01:17:19 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/26 14:05:22 by hialpagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "fractol.h"
 
 static void	exit_n_error(t_fractal *fractal)
 {
@@ -29,9 +29,6 @@ static void	fractal_data(t_fractal *fractal)
 	fractal->y = 0;
 	fractal->iteration = 40;
 	fractal->color = 0x3435FF;
-	fractal->shift_x = -1.45;
-	fractal->shift_y = -1.45;
-	fractal->zoom = 350;
 }
 
 void	fractal_init(t_fractal *fractal, char *name)
@@ -40,13 +37,11 @@ void	fractal_init(t_fractal *fractal, char *name)
 	fractal->name = name;
 	fractal->mlx = mlx_init();
 	if (!ft_strncmp(fractal->name, "julia", 5))
-		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "JULIA SET");
-	else if (!ft_strncmp(fractal->name, "bship", 5))
 	{
-		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "BSHIP SET");
-		fractal->shift_x = -2;
-		fractal->shift_y = -1.85;
-		fractal->zoom = 320;
+		fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "JULIA SET");
+		fractal->shift_x = -1.45;
+		fractal->shift_y = -1.45;
+		fractal->zoom = 350;
 	}
 	else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
 	{
